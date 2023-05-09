@@ -25,7 +25,11 @@ fetch(url)
             const file = data[i];
             console.log(file.name);
             if (file.type === 'file' && file.name.toLowerCase() === idFile.toLowerCase()) {
-                getPostContents(idFile);
+                $.getJSON("https://raw.githubusercontent.com/gumball14/blog/main/test/" + postFile, function (data) {
+        $("#postTitleEntry").text(data.title);
+        $("#postBodyContent").text(data.body);
+        $("#postBodyContentSnippet").text(data.body.substr(0, 700) + "...");
+    });
                 break;
             } else {
                 getPostContents(file.name);
