@@ -16,7 +16,7 @@ if (typeof data !== 'undefined' && data.view.isSingleItem) {
     console.log('This is not a single post');
 }
 
-const idFile = $(document).find("title").text() + ".json";
+const idFile = "post1.json";
 fetch(url)
     .then(response => response.json())
     .then(data => {
