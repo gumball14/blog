@@ -9,14 +9,16 @@ function getPostContents(postFile) {
 const url = 'https://api.github.com/repos/gumball14/blog/contents/test';
 
 if (typeof data !== 'undefined' && data.view.isSingleItem) {
+    console.log('single item');
     const idFile = $(document).find("title").text() + ".json";
     getPostContents(idFile);
 } else {
+    console.log('multiple items');
     fetch(url)
         .then(response => response.json())
         .then(data => {
         for (let i = 0; i < data.length; i++) {
             getPostContents(data[i].name);
-        }     
+        }
     });
 }
