@@ -6,8 +6,6 @@ function getPostContents(postFile) {
     });
 }
 
-console.log('hai guys');
-
 const url = 'https://api.github.com/repos/gumball14/blog/contents/test';
 
 if (typeof data !== 'undefined' && data.view.isSingleItem) {
@@ -16,11 +14,7 @@ if (typeof data !== 'undefined' && data.view.isSingleItem) {
     getPostContents(idFile);
 } else {
     console.log('multiple items');
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-        for (let i = 0; i < data.length; i++) {
-            getPostContents(data[i].name);
-        }
-    });
+    const titleEntry = document.getElementById('postTitleEntry');
+    const fileId = titleEntry.innerText;
+    getPostContents(fileId);
 }
