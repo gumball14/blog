@@ -6,6 +6,8 @@ function getPostContents(postFile) {
     });
 }
 
+console.log('hai guys');
+
 const url = 'https://api.github.com/repos/gumball14/blog/contents/test';
 
 if (typeof data !== 'undefined' && data.view.isSingleItem) {
